@@ -1,0 +1,79 @@
+<!-- <h1>Aplicación de HÉROES.</h1>
+<hr> -->
+
+<!-- Requerimos este router-outlet para poder hacer alusión a las rutas hijas a partir  del padre 
+que sería el componente Home definito en herores-routing-module. Lo necesitamos para mostrar las
+rutas hijas. -->
+<!-- <router-outlet></router-outlet> -->
+
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sideNavRef
+                 mode="push">
+                 
+            <mat-toolbar color="primary">
+                <span>Menú</span>
+                <span class="spacerConFlex"></span>
+            
+                <button mat-icon-button
+                        (click)="sideNavRef.toggle()">
+                    <mat-icon mat-list-item>
+                        menu
+                    </mat-icon>
+                </button>    
+
+        </mat-toolbar>
+
+        <mat-nav-list role="list">
+            <a routerLink="./listado"
+               mat-list-item
+               (click)="sideNavRef.toggle()">
+               <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de Héroes</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list role="list">
+            <a routerLink="./agregar"
+               mat-list-item
+               (click)="sideNavRef.toggle()">
+               <mat-icon mat-list-icon>add</mat-icon>
+                <span>Añadir Héroes</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list role="list">
+            <a routerLink="./buscar"
+               mat-list-item
+               (click)="sideNavRef.toggle()">
+               <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar Héroes</span>
+            </a>
+        </mat-nav-list>
+
+
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button
+                (click)="sideNavRef.toggle()">
+            <mat-icon>
+                menu
+            </mat-icon>
+        </button>
+
+        <span class="spacerConFlex"></span>
+
+        <span> {{ authUsuarios.usuario }} </span>
+
+        <button mat-button
+                (click)="logout()">
+            <mat-icon mat-list-icon>exit_to_app</mat-icon>
+            Salir de sistema.
+        </button>
+    </mat-toolbar>
+
+    <div class="contenido">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>

@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title> {{daticoInput.superhero}} </mat-card-title>
+        <mat-card-subtitle> {{daticoInput.alter_ego}} </mat-card-subtitle>
+    </mat-card-header>
+
+    <!-- <img mat-card-image src="assets/heroes/{{ daticoInput.id }}.jpg" alt="Imagen de {{daticoInput.superhero}}."> -->
+    <img class="cuadrandoImagenes" mat-card-image [src]="daticoInput | imagen">
+
+    <mat-card-content>
+        <h3> {{ daticoInput.publisher }} </h3>
+        <p>
+            <!-- <strong>Primera Aparición: </strong> {{ daticoInput.first_appearance }}
+            <br>
+            <strong>Personajes: </strong> {{ daticoInput.characters }} -->
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions fxLayoutAlign="center">
+        <button mat-stroked-button 
+                color="basic"
+                routerLink="/heroes/{{daticoInput.id}}"
+                title="Ver mas Información.">
+            <mat-icon>menu_book</mat-icon>
+        </button>
+
+        <button mat-stroked-button 
+                color="accent"
+                routerLink="/heroes/editar/{{daticoInput.id}}"
+                title="Actualizar la Información.">
+            <mat-icon>mode_edit</mat-icon>
+        </button>
+        
+    </mat-card-actions>
+
+</mat-card>
